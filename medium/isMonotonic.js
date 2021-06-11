@@ -1,8 +1,10 @@
 // 6/10/21
 // Time: O(n) | Space: O(1)
 function isMonotonic(array) {
+  // lenghts 0-2 always returns true
   if (array.length === 0 || array.length === 1 || array.length === 2) return true;
 
+  // find order of increasing or decreasing of first non repeating pairs
   let j = 1;
   while (j != array.length) {
     if (array[j - 1] === array[j]) {
@@ -11,9 +13,9 @@ function isMonotonic(array) {
       break;
     }
   }
-
   let order = array[j - 1] < array[j] ? "INC" : "DEC";
 
+  // if discrepancy, return false
   for (let i = j; i < array.length; ++i) {
     if (order === "INC" && array[i - 1] > array[i]) {
       return false;
