@@ -1,9 +1,8 @@
 // 7/7/21
-// Time: O() | Space: O()
+// Time: O(n) | Space: O(n)
 function nextGreaterElement(array) {
   let res = new Array(array.length).fill(-1);
   let stack = [];
-  // stack.push(0);
   for (let i = 0; i < array.length * 2; ++i) {
     const modIdx = i % array.length;
     while (array[modIdx] > array[stack[stack.length - 1]] && stack.length > 0) {
